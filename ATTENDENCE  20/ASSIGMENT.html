@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="text">
+        <p>Paragraph One</p>
+        <p id="tx">This is target paragraph (tx)</p>
+        <p id="txt">This paragraph will be removed or replaced</p>
+    </div>
+    <div id="ca">Old Content Here</div>
+    <input type="text" id="input" placeholder="Enter your name">
+    <ul class="menue">
+        <li>english</li>
+        <li>somalia</li>
+    </ul>
+
+    <script>
+        // traversing through elements
+        let div = document.querySelector(".text");
+        console.log(div.lastElementChild);
+
+        // accessing parent node
+        let tx = document.getElementById("tx");
+        console.log(tx.parentNode);
+
+        // previous sibling
+        console.log(tx.previousElementSibling);
+
+        // next sibling
+        console.log(tx.nextElementSibling);
+
+        // access HTML content
+        let txt = document.getElementById("tx").innerHTML;
+        console.log(txt);
+
+        // textContent & innerText
+        console.log(tx.textContent);
+        console.log(tx.innerText);
+
+        // parent text
+        let par = document.querySelector(".text");
+        console.log(par.textContent);
+        console.log(par.innerText);
+
+        // changing HTML content
+        let change = document.getElementById("ca");
+        change.innerHTML = "<h1>welcome to our class CA242</h1>";
+        change.textContent = "NEW ELEMENT";
+
+        // input attributes
+        let inputbox = document.getElementById("input");
+        console.log(inputbox.getAttribute("placeholder"));
+
+        inputbox.setAttribute("class", "ca242");
+        console.log(inputbox.hasAttribute("text"));
+
+        inputbox.removeAttribute("placeholder");
+
+        // create element
+        let newel = document.createElement("div");
+        newel.innerHTML = "<p> Natijada weysoo baxee</p>";
+        document.body.appendChild(newel);
+        console.log(newel);
+
+        // menu example
+        let menu = document.querySelector(".menue");
+        let list = document.createElement("li");
+        list.innerText = "java";
+        menu.appendChild(list);
+
+        menu.insertAdjacentElement("afterbegin", list);
+
+        // remove element
+        let re = document.getElementById("txt");
+        re.remove();
+
+        // replace element
+        let oldpara = document.getElementById("tx");
+        let newpara = document.createElement("p");
+        newpara.innerHTML = "This is the new text";
+        oldpara.parentNode.replaceChild(newpara, oldpara);
+    </script>
+
+</body>
+
+</html>
